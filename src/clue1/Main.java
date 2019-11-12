@@ -12,6 +12,7 @@ public class Main {
 		try {
 			FileInputStream stream = new FileInputStream("clue1.png");
 			BufferedImage image = ImageIO.read(stream);
+			stream.close();
 			int width  = image.getWidth();
 			int height = image.getHeight();
 			int[] raw  = image.getRGB(0, 0, width, height, null, 0, width);

@@ -12,6 +12,7 @@ public class Main {
 		try {
 			FileInputStream stream = new FileInputStream("clue0.png");
 			BufferedImage image = ImageIO.read(stream);
+			stream.close();
 			int width  = image.getWidth();
 			int height = image.getHeight();
 			int[] raw  = image.getRGB(0, 0, width, height, null, 0, width);
@@ -47,14 +48,12 @@ public class Main {
 
 			image.setRGB(0, 0, width, height, output, 0, width);
 			ImageIO.write(image, "png", new File("clue0_output.png"));
-
-			stream.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public static int rotate(int index, int shift, int mod) {
+	private static int rotate(int index, int shift, int mod) {
 		return (((index % mod + shift % mod) % mod) + mod) % mod;
 	}
 }
