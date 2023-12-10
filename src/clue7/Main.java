@@ -50,7 +50,7 @@ public class Main {
 									for (int k = 0; k < 64; ++k) {
 										int intIndex = k / 32;
 										int bitIndex = k % 32;
-										boolean colorSelection = ((patternTable[(patternIndex - 1) * 2  + intIndex] >> (32 - bitIndex)) & 1) == 1;
+										boolean colorSelection = ((patternTable[(patternIndex - 1) * 2  + intIndex] >> (31 - bitIndex)) & 1) == 1;
 
 										int x = k % 8;
 										int y = k / 8;
@@ -89,7 +89,7 @@ public class Main {
 		}
 
 		public int readInt() throws IOException {
-			return (stream.read() << 32)
+			return (stream.read() << 24)
 					| (stream.read() << 16)
 					| (stream.read() <<  8)
 					| (stream.read() <<  0);
